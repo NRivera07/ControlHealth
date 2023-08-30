@@ -1,0 +1,84 @@
+/* styles.css */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background-color: #00A8E8;
+  overflow: hidden;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+nav li {
+  float: left;
+}
+
+nav a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #0086A8;
+}
+
+/* Estilo para el enlace activo */
+nav a.active {
+  background-color: #005E76;
+}
+
+/* Estilos para el menú hamburguesa */
+.menu-button {
+  display: none;
+  cursor: pointer;
+  padding: 14px 16px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+nav.nav-open ul {
+  display: block;
+  background-color: #00A8E8;
+  position: absolute;
+  top: 55px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+nav.nav-open ul li {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Media query para mostrar el menú hamburguesa en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  
+  .menu-button {
+    display: block;
+  }
+  
+  nav.nav-open ul {
+    top: 80px;
+  }
+}

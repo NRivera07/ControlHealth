@@ -1,0 +1,134 @@
+/* Dietas.css */
+.dietas-container {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    color: #2E8B57;
+    margin-bottom: 20px;
+}
+
+.dietas-list {
+    list-style-type: none;
+    padding: 0;
+    display: flex; /* Cambio: Mostrar las categorías en una fila */
+    flex-wrap: wrap; /* Cambio: Permitir que las categorías se ajusten en múltiples filas */
+    justify-content: center; /* Cambio: Centrar horizontalmente las categorías */
+}
+
+.dieta-button {
+    background-color: #F0FFF0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px; /* Cambio: Espaciado entre categorías */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: auto; /* Cambio: Ancho automático para adaptarse al contenido */
+    font-size: 16px; /* Cambio: Tamaño de fuente */
+}
+
+.dieta-button:hover {
+    background-color: #98FB98;
+    transform: translateY(-2px);
+}
+
+.dieta-icon {
+    margin-right: 10px;
+    color: #2E8B57;
+}
+
+
+.modal {
+    background-color: #F0FFF0;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+  
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .close-button {
+    background-color: #2E8B57;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  .close-button:hover {
+    background-color: #228B22;
+  }
+
+  .item-button {
+    background-color: #F0FFF0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 5px 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+  
+  .item-button:hover {
+    background-color: #98FB98;
+    transform: translateY(-2px);
+  }
+  
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dieta-button {
+    background-color: #F0FFF0;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px; /* Aumenta el tamaño del padding */
+    margin-bottom: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    width: 100%;
+  }
+
+  .item-button {
+    background-color: #F0FFF0;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 25px; /* Aumenta el tamaño del padding */
+    margin: 10px 0; /* Aumenta el tamaño del margen */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: left; /* Alinea el texto a la izquierda */
+    font-size: 16px; /* Aumenta el tamaño de la fuente */
+  }
