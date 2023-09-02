@@ -15,7 +15,7 @@ function Navbar() {
 
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
+      <IconContext.Provider value={{ color: '#807676' }}>
         <div className='navbar'>
           <Link to='#' className='menu-bars'>
             <FaBars onClick={showSidebar} /> {/* Cambio de ícono */}
@@ -36,7 +36,7 @@ function Navbar() {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
-                    {item.icon}
+                    {React.cloneElement(item.icon, { color: '#807676' })} {/* Cambio de color del ícono */}
                     <span>{item.title}</span>
                   </Link>
                 </li>
