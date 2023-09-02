@@ -1,0 +1,116 @@
+/* Dietas.css */
+.dietas-container {
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center; /* Alinea el texto al centro */
+  margin-top: 20px; /* Espaciado superior */
+}
+
+h2 {
+  color: #2E8B57;
+  margin-bottom: 20px;
+}
+
+.dietas-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex; /* Muestra las categorías en una fila */
+  flex-wrap: wrap; /* Permite que las categorías se ajusten en múltiples filas */
+  justify-content: center; /* Centra horizontalmente las categorías */
+  gap: 10px; /* Espaciado entre categorías */
+  text-align: center; /* Alinea el texto al centro */
+}
+
+.dieta-button {
+  background-color: #F0FFF0;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px; /* Aumenta el tamaño del padding */
+  margin: 10px 5px; /* Espaciado entre categorías */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
+  font-size: 18px; /* Aumenta el tamaño de la fuente */
+}
+
+.dieta-button:hover {
+  background-color: #98FB98;
+  transform: translateY(-2px);
+}
+
+.dieta-icon {
+  margin-right: 10px;
+  color: #2E8B57;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  text-align: center;
+}
+
+.item-button {
+  background-color: #F0FFF0;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px; /* Aumenta el tamaño del padding */
+  margin: 10px 0; /* Aumenta el tamaño del margen */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Animación para background y transform */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: left; /* Alinea el texto a la izquierda */
+  font-size: 16px; /* Aumenta el tamaño de la fuente */
+}
+
+.item-button:hover {
+  background-color: #98FB98;
+  transform: translateY(-2px);
+  /* Agrega animación adicional aquí, por ejemplo, cambiar el color del texto al hacer hover */
+  color: #2E8B57;
+}
+.overlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close-button {
+  background-color: #2E8B57;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  background-color: #228B22;
+}
+
+.item-button {
+  background-color: #F0FFF0;
+  border: none;
+  border-radius: 5px;
+  padding: 15px 25px;
+  margin: 10px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+}
