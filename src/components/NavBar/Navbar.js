@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { SidebarData } from '../SidebarData';
 import './Navbar.css';
 import { IconContext } from 'react-icons';
+import Dropdown from '../dropdown/dropdown';
 
 // Importa tu imagen aquí
 import logo from './Logo 1.png';
@@ -23,6 +24,7 @@ function Navbar() {
 
           {/* Inserta tu imagen aquí */}
           <img src={logo} alt="Logo" className="navbar-logo" />
+          <Dropdown/>
         </div>
         
         <nav className={sidebar ? 'nav-menu active' : 'nav-menu'}>
