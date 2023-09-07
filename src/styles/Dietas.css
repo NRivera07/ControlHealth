@@ -1,116 +1,85 @@
 /* Dietas.css */
-.dietas-container {
-  font-family: Arial, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center; /* Alinea el texto al centro */
-  margin-top: 20px; /* Espaciado superior */
-}
 
-h2 {
-  color: #2E8B57;
-  margin-bottom: 20px;
-}
-
-.dietas-list {
-  list-style-type: none;
-  padding: 0;
-  display: flex; /* Muestra las categorías en una fila */
-  flex-wrap: wrap; /* Permite que las categorías se ajusten en múltiples filas */
-  justify-content: center; /* Centra horizontalmente las categorías */
-  gap: 10px; /* Espaciado entre categorías */
-  text-align: center; /* Alinea el texto al centro */
-}
-
-.dieta-button {
-  background-color: #F0FFF0;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 25px; /* Aumenta el tamaño del padding */
-  margin: 10px 5px; /* Espaciado entre categorías */
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
-  font-size: 18px; /* Aumenta el tamaño de la fuente */
-}
-
-.dieta-button:hover {
-  background-color: #98FB98;
-  transform: translateY(-2px);
-}
-
-.dieta-icon {
-  margin-right: 10px;
-  color: #2E8B57;
-}
-
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra verticalmente */
-  justify-content: center; /* Centra horizontalmente */
+.diet-container {
+  padding: 20px;
   text-align: center;
 }
 
-.item-button {
-  background-color: #F0FFF0;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 25px; /* Aumenta el tamaño del padding */
-  margin: 10px 0; /* Aumenta el tamaño del margen */
+.filter-buttons {
+  margin-top: 20px;
+}
+
+.filter-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  background-color: transparent; /* Fondo transparente por defecto */
+  color: #007bff; /* Color de texto por defecto */
+  border: 2px solid #007bff; /* Borde por defecto */
+  border-radius: 10px; /* Bordes ligeramente redondeados */
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out; /* Animación para background y transform */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  text-align: left; /* Alinea el texto a la izquierda */
-  font-size: 16px; /* Aumenta el tamaño de la fuente */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transición suave del color de fondo, texto y borde */
+  width: 150px;
+  text-align: center;
 }
 
-.item-button:hover {
-  background-color: #98FB98;
-  transform: translateY(-2px);
-  /* Agrega animación adicional aquí, por ejemplo, cambiar el color del texto al hacer hover */
-  color: #2E8B57;
-}
-.overlay {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.filter-buttons button:active {
+  background-color: #007bff; /* Cambia el color de fondo a azul cuando el botón está activo (clicado) */
+  color: #fff; /* Cambia el color de texto a blanco cuando el botón está activo */
+  border-color: #007bff; /* Cambia el color del borde a azul cuando el botón está activo */
+  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease; /* Cambio rápido de color al hacer clic */
 }
 
-.close-button {
-  background-color: #2E8B57;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 15px 25px;
+.category-items {
+  margin-top: 20px;
+}
+
+.column {
+  margin-bottom: 5px;
   margin-top: 10px;
-  cursor: pointer;
 }
 
-.close-button:hover {
-  background-color: #228B22;
-}
-
-.item-button {
-  background-color: #F0FFF0;
-  border: none;
+.item-card {
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
-  padding: 15px 25px;
-  margin: 10px 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  text-align: left;
+  transition: transform 0.2s ease-in-out;
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+.item-card:hover {
+  transform: scale(1.05);
+}
+
+.item-card img {
+  height: 150px;
+  object-fit: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.item-card h5 {
+  padding: 10px;
+  margin: 0;
   font-size: 16px;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.modal-footer {
+  justify-content: center;
+}
+
+/* Estilos para dispositivos móviles (ancho de pantalla menor a 768px) */
+@media (max-width: 768px) {
+  .filter-buttons button {
+    padding: 8px 12px; /* Reducir el relleno para hacer los botones más pequeños */
+    font-size: 14px; /* Reducir el tamaño de fuente de los botones */
+    width: 150px; /* Reducir el ancho de los botones */
+  }
+  .item-card {
+    max-width: 350px; /* Aumentar el ancho de las tarjetas en dispositivos móviles */
+  }
 }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaHome, FaUtensils, FaDumbbell, FaPills, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import { FaHome, FaUtensils, FaDumbbell, FaCalendarAlt} from 'react-icons/fa';
+import {MdMedication} from 'react-icons/md'
 
 export const SidebarData = [
   {
@@ -16,7 +17,7 @@ export const SidebarData = [
   },
   {
     title: 'Dietas',
-    path: '/dietas',
+    path: '/diet',
     icon: <FaUtensils />,
     cName: 'nav-text'
   },
@@ -29,14 +30,8 @@ export const SidebarData = [
   {
     title: 'Medicación',
     path: '/medicacion',
-    icon: <FaPills />,
+    icon: <MdMedication />,
     cName: 'nav-text'
   },
-  {
-    title: 'Perfil',
-    path: '/profile',
-    icon: <FaUser />,
-    cName: 'nav-text'
-  }
 ];
 

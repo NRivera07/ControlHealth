@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Rutinas() {
+function Routines() {
   return <div>Rutinas Page</div>;
 }
 
-export default Rutinas;
+export default Routines;

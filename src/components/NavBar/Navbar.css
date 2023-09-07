@@ -14,12 +14,19 @@
   font-size: 2rem;
   background: none;
   margin-left: 16px;
-  color: #000; /* Cambiamos el color del icono a negro */
+  color: var(--color-primary); /* Cambiamos el color del icono a negro */
+}
+
+.menu-x {
+  font-size: 2rem;
+  background: none;
+  margin-left: 120px;
+  color: var(--color-secundary); /* Cambiamos el color del icono a negro */
 }
 
 .nav-menu {
-  background-color: #fff;
-  width: 250px;
+  background-color: var(--color-primary)  ;
+  width: 200px;
   height: 100%;
   position: fixed;
   top: 0;
@@ -28,7 +35,8 @@
   opacity: 0;
   border-right: 1px solid #807676; /* Agregamos un borde en el lado derecho */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 4px 0 4px rgba(0, 0, 0, 0.1); /* Agregamos sombra en el lado derecho */
-}
+  z-index: 1000;
+  }
 
 .nav-menu.active {
   left: 0;
@@ -48,13 +56,13 @@
 
 .nav-text a {
   text-decoration: none;
-  color: #000; /* Cambiamos el color del texto a negro */
+  color: #fff; 
   font-size: 18px;
-  width: 95%;
+  width: 90%;
   height: 100%;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: -10px;
   border-radius: 4px;
   transition: background-color 0.3s ease, transform 0.1s ease;
 }
@@ -69,7 +77,7 @@
 }
 
 .navbar-toggle {
-  background-color: #ffff;
+  background-color: #008DD8;
   min-height: 80px; /* Cambiamos height a min-height para que sea responsivo */
   display: flex;
   justify-content: flex-start;
@@ -94,6 +102,12 @@ span {
   position: absolute; /* Cambia a absolute */
   top: 50%; /* Coloca el logo en el centro verticalmente */
   transform: translateY(-50%); /* Centra verticalmente */
-  left: 60px; /* Ajusta la posición izquierda */
+  left: 90px; /* Ajusta la posición izquierda */
   color: #000; /* Cambiamos el color del icono a negro */
 }
+
+:root {
+ --color-primary: #008DD8;
+ --color-secundary: #ffff;
+}
+
