@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FaBars } from 'react-icons/fa'
 import { BsArrowLeftSquare } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
-import './Navbar.css'
+import './navbar.css'
 import Dropdown from '../Dropdown/Dropdown'
 
 // Importa tu imagen aquí
