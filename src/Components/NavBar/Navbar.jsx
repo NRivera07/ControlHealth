@@ -7,7 +7,7 @@ import Dropdown from '../Dropdown/Dropdown'
 
 // Importa tu imagen aquí
 import logo from '../../Assets/Images/logo.png'
-import { SidebarData } from '../../Utils/Constants'
+import { SidebarData } from '../../Utils/constants'
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false)
