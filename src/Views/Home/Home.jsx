@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 
-import '../styles/Home.css';
+import './Home.css'
 
 function Home() {
   return (
@@ -25,7 +25,7 @@ function Home() {
         </ul>
       </div>
     </div>
-  );
+  )
 }
 
-export default Home;
+export default Home
