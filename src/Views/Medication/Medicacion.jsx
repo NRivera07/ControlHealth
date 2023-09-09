@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { Form, Button, Container, Row, Col } from 'react-bootstrap';
+import React, { useState } from 'react'
+import { Form, Button, Container, Row, Col } from 'react-bootstrap'
 
 function MedicationForm() {
   const [medication, setMedication] = useState({
     name: '',
     dosage: '',
     frequency: '',
-  });
+  })
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
-    setMedication({ ...medication, [name]: value });
-  };
+    const { name, value } = e.target
+    setMedication({ ...medication, [name]: value })
+  }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // Aquí puedes realizar la lógica para guardar el medicamento en tu base de datos o realizar otras acciones.
-    console.log('Medication Submitted:', medication);
-  };
+    console.log('Medication Submitted:', medication)
+  }
 
   return (
     <Container>
@@ -62,7 +62,7 @@ function MedicationForm() {
         </Col>
       </Row>
     </Container>
-  );
+  )
 }
 
-export default MedicationForm;
+export default MedicationForm
