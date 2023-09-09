@@ -3,11 +3,11 @@ import { FaBars } from 'react-icons/fa'
 import { BsArrowLeftSquare } from 'react-icons/bs'
 import { Link } from 'react-router-dom'
 import './Navbar.css'
-import Dropdown from '../Dropdown/Dropdown'
+import Dropdown from '../../components/dropdown/dropdown'
 
 // Importa tu imagen aquí
 import logo from '../../Assets/Images/logo.png'
-import { SidebarData } from '../../Utils/constants'
+import { SidebarData } from '../../Utils/Constants'
 
 function Navbar() {
   const [sidebar, setSidebar] = useState(false)
