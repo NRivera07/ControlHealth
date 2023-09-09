@@ -29,7 +29,7 @@ export const SidebarData = [
   },
   {
     title: 'Medicación',
-    path: '/medicacion',
+    path: '/medication',
     icon: <MdMedication />,
     cName: 'nav-text',
   },
