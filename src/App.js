@@ -6,6 +6,8 @@ import Quotes from './Views/Quotes/Quotes'
 import Diet from './Views/Diet/Diet'
 import Medication from './Views/Medication/Medication'
 import Routines from './Views/Routines/Routines'
+import Login from './Views/Login/Login'
+import Register from './Views/Register/Register'
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/sign-in" component={Register} />
           <Route path="/citas" component={Quotes} />
           <Route path="/medication" component={Medication} />
           <Route path="/diet" component={Diet} />
