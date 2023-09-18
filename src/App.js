@@ -8,6 +8,7 @@ import Medication from './Views/Medication/Medication'
 import Routines from './Views/Routines/Routines'
 import Login from './Views/Login/Login'
 import Register from './Views/Register/Register'
+import ProtectedRoute from './Utils/ProtectedRoute'
 
 function App() {
   return (
@@ -15,13 +16,17 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/login" component={Login} />
-          <Route path="/sign-in" component={Register} />
-          <Route path="/citas" component={Quotes} />
-          <Route path="/medication" component={Medication} />
-          <Route path="/diet" component={Diet} />
-          <Route path="/routines" component={Routines} />
+          <Route path="/login" exact component={Login} />
+          <Route path="/register" component={Register} />
+
+        
+          <ProtectedRoute path="/" component={Home} />
+          <ProtectedRoute path="/citas" component={Quotes} />
+          <ProtectedRoute path="/medication" component={Medication} />
+          <ProtectedRoute path="/diet" component={Diet} />
+          <ProtectedRoute path="/routines" component={Routines} />
+
+          
         </Switch>
       </Router>
     </>

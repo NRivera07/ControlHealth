@@ -34,3 +34,16 @@ export const SidebarData = [
     cName: 'nav-text',
   },
 ]
+
+export const Menu = [
+  {
+    title: 'Profile',
+    path: '/profile',
+    cName: 'nav-text',
+  },
+  {
+    title: 'Settings',
+    path: '/settings',
+    cName: 'nav-text',
+  },
+];
