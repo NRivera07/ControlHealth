@@ -1,7 +1,8 @@
 import React, {useEffect,useState} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { registerInitiate } from '../../redux/action/action';
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const Register = () => {
 
@@ -14,8 +15,8 @@ const Register = () => {
     const { nombre, email, password, password_confirm } = state;
 
     const dispatch = useDispatch();
-    // const {currentUser} = useSelector(state => state.user);
-    // const history = useHistory();
+    const {currentUser} = useSelector(state => state.user);
+    const history = useHistory();
 
     const handleSubmit = (e) => { 
         e.preventDefault();
@@ -29,11 +30,11 @@ const Register = () => {
     }
     
 
-    // useEffect(() => {
-    //     if(currentUser){
-    //         history.push('/');
-    //     }
-    // },[currentUser])
+    useEffect(() => {
+        if(currentUser){
+            history.push('/login');
+        }
+    },[currentUser, history])
 
     const handleChange = (e) => { 
         let {name, value} = e.target;
@@ -93,10 +94,12 @@ const Register = () => {
                     </input>
                 </div>
 
-                <button type="submit" >Enviar</button>
+                <button type="submit" >Create a count</button>
                 <hr />
 
-                <p>You do not have an account ?</p>
+                <p>Already have an count {" "}
+                    <Link to="/login">Login</Link>
+                </p> 
                 
             </form>
         </>
