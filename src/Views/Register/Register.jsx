@@ -1,109 +1,174 @@
-import React, {useEffect,useState} from 'react'
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { registerInitiate } from '../../redux/action/action';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './Register.css';
+import logo from '../../Assets/Images/logo.png';
+import Modal from 'react-modal';
+import { FaSpinner } from 'react-icons/fa'; // Icono de carga
+
+// Configura react-modal
+Modal.setAppElement('#root');
 
 const Register = () => {
+  const [state, setState] = useState({
+    nombre: '',
+    apellido: '',
+    email: '',
+    password: '',
+    password_confirm: '',
+  });
+  const { nombre, apellido, email, password, password_confirm } = state;
 
-    const [state, setState] = useState({
-        nombre: "",
-        email: "",
-        password: "",
-        password_confirm: ""
-    })
-    const { nombre, email, password, password_confirm } = state;
+  const dispatch = useDispatch();
+  const { currentUser} = useSelector((state) => state.user);
+  const history = useHistory();
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
 
-    const dispatch = useDispatch();
-    const {currentUser} = useSelector(state => state.user);
-    const history = useHistory();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-    const handleSubmit = (e) => { 
-        e.preventDefault();
-
-        if(password !== password_confirm){
-            return;
-        }
-        
-        dispatch(registerInitiate(nombre, email, password));
-        setState({email: "", nombre: "", password: "", password_confirm: ""})
-    }
-    
-
-    useEffect(() => {
-        if(currentUser){
-            history.push('/login');
-        }
-    },[currentUser, history])
-
-    const handleChange = (e) => { 
-        let {name, value} = e.target;
-        setState({...state, [name]: value});
+    if (password !== password_confirm) {
+      return;
     }
 
-    return (
-        <>
-            <h1>Crear usuario</h1>
-            <form onSubmit={handleSubmit}>
-                <div >
-                    <label htmlFor="nombre">Nombre</label>
+    dispatch(registerInitiate(nombre, apellido, email, password));
+    openModal(); // Abre el modal cuando el registro es exitoso
+  };
 
-                    <input type="text"
-                        placeholder="Nombre"
-                        id='nombre'
-                        value={nombre}
-                        name="nombre"
-                        onChange={handleChange}
-                    >
+  useEffect(() => {
+    if (currentUser) {
+      history.push('/'); // Redirige a la página de inicio si el usuario está autenticado
+    }
+  }, [currentUser, history]);
 
-                    </input>
-                </div>
+  const handleChange = (e) => {
+    let { name, value } = e.target;
+    setState({ ...state, [name]: value });
+  };
 
-                <div >
-                    <label htmlFor="email">Email</label>
-                    <input type="email"
-                        placeholder="Email"
-                        id='email'
-                        value={email}
-                        name="email"
-                        onChange={handleChange}
-                    >
+  useEffect(() => {
+    // Verifica si todos los campos están llenos para habilitar el botón "Crear cuenta"
+    if (nombre && apellido && email && password && password_confirm) {
+      setIsSubmitDisabled(false);
+    } else {
+      setIsSubmitDisabled(true);
+    }
+  }, [nombre, apellido, email, password, password_confirm]);
 
-                    </input>
-                </div>
-                <div >
-                    <label htmlFor="password">Password</label>
-                    <input type='password'
-                        placeholder="Password"
-                        onChange={handleChange}
-                        value={password}
-                        name="password"
-                    >
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
 
-                    </input>
-                </div>
-                <div >
-                    <label htmlFor="password_confirm">Password_confirm</label>
-                    <input type='password'
-                        placeholder="Password_confirm"
-                        onChange={handleChange}
-                        value={password_confirm}
-                        name="password_confirm"
-                    >
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
 
-                    </input>
-                </div>
+  return (
+    <div className="register-container">
+      <div className="box">
+        <img src={logo} alt="Logo" className="register-logo" />
+        <form onSubmit={handleSubmit}>
+          <div className="register-form-group">
+            <label htmlFor="nombre"></label>
+            <input
+              type="text"
+              className="register-form-control"
+              placeholder="Nombre"
+              id="nombre"
+              value={nombre}
+              name="nombre"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-                <button type="submit" >Create a count</button>
-                <hr />
+          <div className="register-form-group">
+            <label htmlFor="apellido"></label>
+            <input
+              type="text"
+              className="register-form-control"
+              placeholder="Apellido"
+              id="apellido"
+              value={apellido}
+              name="apellido"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-                <p>Already have an count {" "}
-                    <Link to="/login">Login</Link>
-                </p> 
-                
-            </form>
-        </>
-    )
-}
+          <div className="register-form-group">
+            <label htmlFor="email"></label>
+            <input
+              type="email"
+              className="register-form-control"
+              placeholder="Email"
+              id="email"
+              value={email}
+              name="email"
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-export default Register
+          <div className="register-form-group">
+            <label htmlFor="password"></label>
+            <input
+              type="password"
+              className="register-form-control"
+              placeholder="Password"
+              onChange={handleChange}
+              value={password}
+              name="password"
+              required
+            />
+          </div>
+
+          <div className="register-form-group">
+            <label htmlFor="password_confirm"></label>
+            <input
+              type="password"
+              className="register-form-control"
+              placeholder="Confirmar Password"
+              onChange={handleChange}
+              value={password_confirm}
+              name="password_confirm"
+              required
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="register-btn btn btn-primary"
+            disabled={isSubmitDisabled}
+          >
+            Crear cuenta
+          </button>
+        </form>
+        <p className="register-text">¿Ya tienes una cuenta?</p>
+        <Link to="/login" className="register-link">
+          Login
+        </Link>
+      </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Registro Exitoso"
+        className="custom-modal"
+        overlayClassName="custom-modal-overlay"
+      >
+        <div className="modal-content">
+          <div className="loading-icon">
+            <FaSpinner className="spinner" /> {/* Icono de carga */}
+          </div>
+          <p>Registrando...</p>
+        </div>
+      </Modal>
+    </div>
+  );
+};
+
+export default Register;

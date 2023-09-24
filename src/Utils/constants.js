@@ -5,7 +5,7 @@ import { MdMedication } from 'react-icons/md'
 export const SidebarData = [
   {
     title: 'Home',
-    path: '/',
+    path: '/home',
     icon: <FaHome />,
     cName: 'nav-text',
   },

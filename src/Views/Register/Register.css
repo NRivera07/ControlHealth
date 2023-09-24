@@ -1,0 +1,159 @@
+/* Register.css */
+
+/* Estilos para el contenedor principal */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Establece la altura del contenedor al 100% del viewport */
+  background-image: url('/src/Assets/Images/background.png');
+  background-size: cover; /* Ajusta el tamaño de la imagen de fondo */
+  background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+  background-position: center; /* Centra la imagen de fondo */
+}
+
+/* Estilos para el "box" que contiene la imagen y el formulario */
+.box {
+  background-color: var(--color-secundary);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  max-width: 500px; /* Aumenta el ancho máximo del "box" */
+}
+
+/* Estilos para la imagen del logo */
+.register-logo {
+  width: 180px; /* Ajusta el tamaño de la imagen según tus necesidades */
+  margin-bottom: 5px;
+}
+
+/* Estilos para los elementos del formulario */
+.register-form-group {
+  margin-bottom: 10px;
+}
+
+.register-form-control {
+  width: 400px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background-color: var(--color-secundary);
+  border-radius: 10px;
+  opacity: 1;
+}
+
+.register-btn-primary {
+  background-color: var(--color-primary);
+  color:  var(--color-secundary);
+  margin-top: 15px;
+}
+
+.register-btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.register-btn-link {
+  text-decoration: none;
+  color: var(--color-primary);
+}
+
+.register-btn-link:hover {
+  text-decoration: underline;
+}
+
+.register-Registro-Text {
+  text-align: left;
+  font: normal normal 900 20px/20px Montserrat;
+  color: var(--color-primary);
+}
+
+.register-link{
+  text-align: left;
+  font: normal normal 900 20px/20px Montserrat;
+  color: var(--color-primary);
+}
+
+.register-text {
+  color: black;
+  font-weight: bold; /* Aplica negrita */
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .box {
+    padding: 10px; /* Reduce el espaciado interno */
+    max-width: 100%; /* Utiliza todo el ancho disponible */
+    width: 90%; /* Ajusta el ancho del box */
+    margin: 0 auto; /* Centra el box horizontalmente */
+  }
+
+  .register-logo {
+    width: 60%; /* Reduzco el tamaño de la imagen */
+    max-width: 150px; /* Establece un tamaño máximo */
+    margin-bottom: 10px; /* Reduce el margen inferior */
+  }
+
+  .register-Registro-Text {
+    font-size: 14px; /* Ajusta el tamaño del texto */
+  }
+
+  /* Reducción del tamaño de los elementos de entrada (input) */
+  .register-form-control {
+    padding: 8px; /* Ajusta el espaciado interno */
+    font-size: 14px; /* Ajusta el tamaño de la fuente */
+    max-width: 100%; /* Evita que los input se salgan del box */
+  }
+}
+
+:root {
+  --color-primary: #008DD8;
+  --color-secundary: #ffff;
+}
+
+.custom-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilos para el modal */
+.custom-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-secundary);
+  border: 2px solid var(--color-primary); /* Borde verde */
+  padding: 20px;
+  text-align: center;
+  width: 300px;
+  border-radius: 8px;
+}
+
+.custom-modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el icono de carga */
+.loading-icon {
+  font-size: 2em;
+  color: var(--color-primary); /* Color verde */
+  margin-bottom: 10px; /* Espacio bajo el ícono */
+}
+
+/* Estilos para el texto de carga */
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

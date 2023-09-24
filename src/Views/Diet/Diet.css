@@ -1,8 +1,11 @@
-/* Dietas.css */
+/* Diet.css */
 
+/* Estilos para pantallas grandes */
 .diet-container {
-  padding: 20px;
+  align-items: center;
   text-align: center;
+  padding: 120px;
+  margin-top: -60px;
 }
 
 .filter-buttons {
@@ -12,30 +15,44 @@
 .filter-buttons button {
   margin: 5px;
   padding: 10px 15px;
-  background-color: transparent; /* Fondo transparente por defecto */
-  color: #007bff; /* Color de texto por defecto */
-  border: 2px solid #007bff; /* Borde por defecto */
-  border-radius: 10px; /* Bordes ligeramente redondeados */
+  background-color: transparent;
+  color: #007bff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; /* Transición suave del color de fondo, texto y borde */
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
   width: 150px;
   text-align: center;
 }
 
 .filter-buttons button:active {
-  background-color: #007bff; /* Cambia el color de fondo a azul cuando el botón está activo (clicado) */
-  color: #fff; /* Cambia el color de texto a blanco cuando el botón está activo */
-  border-color: #007bff; /* Cambia el color del borde a azul cuando el botón está activo */
-  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease; /* Cambio rápido de color al hacer clic */
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+  transition: background-color 0.1s ease, color 0.1s ease, border-color 0.1s ease;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  justify-content: center;
 }
 
 .category-items {
-  margin-top: 20px;
+  justify-content: center;
 }
 
 .column {
-  margin-bottom: 5px;
-  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 
 .item-card {
@@ -43,7 +60,8 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  max-width: 250px;
+  max-width: 290px;
+  height: auto;
   margin: 0 auto;
 }
 
@@ -72,14 +90,39 @@
   justify-content: center;
 }
 
-/* Estilos para dispositivos móviles (ancho de pantalla menor a 768px) */
-@media (max-width: 768px) {
-  .filter-buttons button {
-    padding: 8px 12px; /* Reducir el relleno para hacer los botones más pequeños */
-    font-size: 14px; /* Reducir el tamaño de fuente de los botones */
-    width: 150px; /* Reducir el ancho de los botones */
+/* Estilos para pantallas pequeñas (móvil) */
+@media screen and (max-width: 768px) {
+  .diet-container {
+    padding: 12px;
+    margin-top: 20px;
+    text-align: center;
+    align-items: center;
   }
+
+  .filter-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    margin-bottom: 40px;
+    text-align: center;
+    margin: 0px;
+  }
+
+  .filter-buttons button {
+    padding: 0px;
+    font-size: 13px;
+    width: auto;
+    height: 100%;
+  }
+
   .item-card {
-    max-width: 350px; /* Aumentar el ancho de las tarjetas en dispositivos móviles */
+    max-width: 300%; /* Hacer que las tarjetas ocupen todo el ancho de la pantalla */
+  }
+  .item-card img {
+    width: auto; /* Hacer que la imagen ocupe todo el ancho de la tarjeta */
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
   }
 }

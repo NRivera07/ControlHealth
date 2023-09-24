@@ -1,14 +1,11 @@
 import React from 'react'
 import { useSelector } from "react-redux"
-import { Route } from 'react-router-dom'
-import { useHistory } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom'
 
-const ProtectedRoute = ({children, ...res}) => {
+const ProtectedRoute = ({ ...rest }) => {
+  const { currentUser } = useSelector(state => state.user);
 
-  const {currentUser} = useSelector(state => state.user);
-  const history = useHistory();
-  
-  return currentUser ?  <Route {...res} /> : history.push('/login');
+  return currentUser ? <Route {...rest} /> : <Redirect to="/login" />;
 }
 
 export default ProtectedRoute

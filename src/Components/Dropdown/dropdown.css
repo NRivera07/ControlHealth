@@ -3,48 +3,53 @@
 .dropdown-container {
     position: relative;
     display: inline-block;
-    margin-right: 15px;
-}
-
-.user-icon {
+    margin-left: auto; /* Cambia margin-right a margin-left */
+  }
+  
+  .user-icon {
     cursor: pointer;
     color: var(--color-primary);
     width: 35px;
     height: 35px;
-}
-
-.menu {
+  }
+  
+  .menu {
     display: block;
     position: absolute;
     top: 100%;
-    right: 1rem;;
-    background-color: #fff;
+    right: 1rem;
+    background-color: var(--color-secundary);
     border: 1px solid #ccc;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     border-radius: 0.9rem;
     padding: 1rem;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.5s ease;
-}
-
-.menu.visible {
-    opacity: 1; 
+  }
+  
+  .menu.visible {
+    opacity: 1;
     z-index: 1000;
-}
-.menu ul {
+  }
+  
+  .menu ul {
     list-style: none;
     padding: 0;
-}
-.menu li {
+  }
+  
+  .menu li {
     margin: 0.5rem 1rem;
     cursor: pointer;
     transition: border-bottom 0.9s ease, transform 0.1s ease;
-    
-}
-
-.menu li:hover {
+  }
+  
+  .menu li:hover {
     color: #000000;
     border-bottom: 1px solid;
     transform: scale(1.03);
-
-}
+  }
+  
+  :root {
+    --color-primary: #008DD8;
+    --color-secundary: #ffff;
+   }

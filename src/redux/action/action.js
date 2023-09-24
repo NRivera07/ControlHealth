@@ -63,7 +63,7 @@ const logoutFailed = (error) => ({
   payload: error
 })
 
-export const registerInitiate = (nombre, email, password) => {
+export const registerInitiate = (nombre,apellido, email, password) => {
   return async (dispatch) => {
     dispatch(registerUser());
     try {
@@ -76,11 +76,11 @@ export const registerInitiate = (nombre, email, password) => {
       const user = userCredential.user;
 
       await updateProfile(auth.currentUser,{
-        displayName: nombre,
+        displayName: `${nombre} ${apellido}`,
       });
       await setDoc(doc(db, 'user', user.uid), {
         uid: user.uid,
-        displayName: nombre,
+        displayName: `${nombre} ${apellido}`, 
         email,
       })
 

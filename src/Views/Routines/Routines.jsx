@@ -4,14 +4,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ReactPlayer from 'react-player'; // Importa el componente de React Player
-import './Routines.css'; // Cambia el nombre del archivo CSS si es necesario
-import { ExerciseData } from '../../Utils/routines'; // Asegúrate de tener datos de rutinas de ejercicio
+import ReactPlayer from 'react-player'; 
+import './Routines.css';
+import { ExerciseData } from '../../Utils/routines';
 
 function Exercise() {
   const [selectedItem, setSelectedItem] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showImage, setShowImage] = useState(true); // Variable de estado para alternar entre imagen y video
+  const [showImage, setShowImage] = useState(true); 
 
   const getCategoryItems = () => {
     if (selectedCategory === null) {
@@ -29,7 +29,7 @@ function Exercise() {
 
   const closeModal = () => {
     setSelectedItem(null);
-    setShowImage(true); // Restablecer la vista a la imagen cuando se cierra el modal
+    setShowImage(true); 
   };
 
   return (

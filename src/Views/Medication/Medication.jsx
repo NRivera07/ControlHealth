@@ -4,7 +4,7 @@ import { Modal, Button, Form, Row, Col, Card } from 'react-bootstrap'; // Import
 import { IoIosAddCircle, IoIosCloseCircle} from 'react-icons/io'; // Importa los íconos de react-icons
 import { CiPill } from 'react-icons/ci';
 import { AiFillInfoCircle } from 'react-icons/ai';
-import '../Medication/Medication.css';
+import './Medication.css';
 
 function Medication() {
   const [medicines, setMedicines] = useState([]);
