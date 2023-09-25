@@ -78,10 +78,17 @@ export const registerInitiate = (nombre,apellido, email, password) => {
       await updateProfile(auth.currentUser,{
         displayName: `${nombre} ${apellido}`,
       });
+
+      //TODO: cambiar el nombre de la coleccion user a users 
+
+
       await setDoc(doc(db, 'user', user.uid), {
         uid: user.uid,
         displayName: `${nombre} ${apellido}`, 
         email,
+      })
+      await setDoc(doc(db, 'appointments', user.uid), {
+        appointments: []
       })
 
       dispatch(registerSuccess(user));
