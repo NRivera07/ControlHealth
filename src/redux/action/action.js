@@ -1,17 +1,17 @@
-import { 
+import {
   Register_User,
-   Register_Success, 
-   Register_Failed, 
-   LOGIN_Start, 
-   LOGIN_Success, 
-   LOGIN_Failed,
-   LOGOUT_Start,
-   LOGOUT_Success,
-   LOGOUT_Failed
-  } from "../const/const";
-import { 
-  createUserWithEmailAndPassword, 
-  updateProfile, 
+  Register_Success,
+  Register_Failed,
+  LOGIN_Start,
+  LOGIN_Success,
+  LOGIN_Failed,
+  LOGOUT_Start,
+  LOGOUT_Success,
+  LOGOUT_Failed
+} from "../const/const";
+import {
+  createUserWithEmailAndPassword,
+  updateProfile,
   signInWithEmailAndPassword,
   signOut
 } from 'firebase/auth'
@@ -63,7 +63,7 @@ const logoutFailed = (error) => ({
   payload: error
 })
 
-export const registerInitiate = (nombre,apellido, email, password) => {
+export const registerInitiate = (nombre, apellido, email, password) => {
   return async (dispatch) => {
     dispatch(registerUser());
     try {
@@ -75,7 +75,7 @@ export const registerInitiate = (nombre,apellido, email, password) => {
 
       const user = userCredential.user;
 
-      await updateProfile(auth.currentUser,{
+      await updateProfile(auth.currentUser, {
         displayName: `${nombre} ${apellido}`,
       });
 
@@ -84,7 +84,7 @@ export const registerInitiate = (nombre,apellido, email, password) => {
 
       await setDoc(doc(db, 'user', user.uid), {
         uid: user.uid,
-        displayName: `${nombre} ${apellido}`, 
+        displayName: `${nombre} ${apellido}`,
         email,
       })
       await setDoc(doc(db, 'appointments', user.uid), {
@@ -110,7 +110,7 @@ export const loginInitiate = (email, password) => {
       );
 
       const user = userCredential.user;
-      
+
       dispatch(loginSuccess(user));
     } catch (error) {
       console.error("Error:", error.code, error.message);
@@ -124,7 +124,7 @@ export const logout = () => {
     dispatch(logoutStart())
     try {
       await signOut(auth)
-      
+
       dispatch(logoutSuccess())
     } catch (error) {
       dispatch(logoutFailed(error))

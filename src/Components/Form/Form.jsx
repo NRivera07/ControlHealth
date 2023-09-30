@@ -1,31 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './Form.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { GetDoctors } from '../../redux/action/DoctorAction';
+import { useDispatch, useSelector} from "react-redux";
 
 const Form = () => {
+
+  const dispatch = useDispatch()
+  const { doctors} = useSelector((state) => state.doctors);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMedicoDetailsOpen, setIsMedicoDetailsOpen] = useState(false);
   const [selectedMedico, setSelectedMedico] = useState(null);
-  const [medicos] = useState([
-    { nombre: 'Médico 1', detalles: 'Detalles del Médico 1' },
-    { nombre: 'Médico 2', detalles: 'Detalles del Médico 2' },
-    { nombre: 'Médico 3', detalles: 'Detalles del Médico 3' },
-    { nombre: 'Médico 4', detalles: 'Detalles del Médico 4' },
-    { nombre: 'Médico 5', detalles: 'Detalles del Médico 5' },
-    // Agrega más médicos según sea necesario
-  ]);
   const [selectedMedicoDetails, setSelectedMedicoDetails] = useState(null);
 
   const openModal = () => {
     setIsModalOpen(true);
   };
 
+  console.log(selectedMedico)
+
+  useEffect(() => {
+    dispatch(GetDoctors());
+  }, [dispatch]);
+
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  const openMedicoDetailsModal = (medico) => {
-    setSelectedMedicoDetails(medico.detalles);
+  const openMedicoDetailsModal = (doctor) => {
+    setSelectedMedicoDetails(doctor.location);
     setIsMedicoDetailsOpen(true);
   };
 
@@ -33,10 +37,12 @@ const Form = () => {
     setIsMedicoDetailsOpen(false);
   };
 
-  const handleMedicoSelect = (medico) => {
-    setSelectedMedico(medico);
+  const handleMedicoSelect = (doctor) => {
+
+    //TODO: MEJORAR ESTA PARTE 
+    setSelectedMedico(doctors.find((m) => m.displayName === doctor));
     closeModal();
-    openMedicoDetailsModal(medicos.find((m) => m.nombre === medico));
+    openMedicoDetailsModal(doctors.find((m) => m.displayName === doctor));
   };
 
   return (
@@ -122,10 +128,10 @@ const Form = () => {
             <h2>Selecciona un médico</h2>
             <div className="medicos-list-container">
               <div className="medicos-list">
-                {medicos.map((medico, index) => (
+                {doctors?.map((doctor, index) => (
                   <div className="medico-card" key={index}>
-                    <h3>{medico.nombre}</h3>
-                    <button onClick={() => handleMedicoSelect(medico.nombre)}>
+                    <h3>{doctor.displayName}</h3>
+                    <button onClick={() => handleMedicoSelect(doctor.displayName)}>
                       Seleccionar
                     </button>
                   </div>

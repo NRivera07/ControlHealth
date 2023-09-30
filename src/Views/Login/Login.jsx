@@ -23,6 +23,7 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const { currentUser} = useSelector((state) => state.user);
+  
   const history = useHistory();
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
