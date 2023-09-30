@@ -7,8 +7,10 @@ import Medication from './Views/Medication/Medication';
 import Routines from './Views/Routines/Routines';
 import Login from './Views/Login/Login';
 import Register from './Views/Register/Register';
+import Profile from './Views/Profile/Profile';
 import Navbar from './Components/NavBar/Navbar'; // Importa tu barra de navegación aquí
 import ProtectedRoute from './Utils/ProtectedRoute';
+
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
             <ProtectedRoute path="/medication" component={Medication} />
             <ProtectedRoute path="/diet" component={Diet} />
             <ProtectedRoute path="/routines" component={Routines} />
+            <ProtectedRoute path="/profile" component={Profile} />
 
             {/* La ruta raíz también está protegida */}
             <ProtectedRoute path="/" component={Home} />

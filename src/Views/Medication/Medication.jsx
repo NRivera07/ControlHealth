@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { Modal, Button, Form, Row, Col, Card } from 'react-bootstrap'; // Importa los componentes de React Bootstrap
 import { IoIosAddCircle, IoIosCloseCircle} from 'react-icons/io'; // Importa los íconos de react-icons
 import { CiPill } from 'react-icons/ci';
