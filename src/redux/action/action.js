@@ -16,7 +16,7 @@ import {
   signOut
 } from 'firebase/auth'
 import { auth } from "../../firebase_config";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, addDoc,collection, query, where, getDocs  } from "firebase/firestore";
 import { db } from "../../firebase_config";
 
 const registerUser = () => ({
@@ -131,3 +131,45 @@ export const logout = () => {
     }
   }
 }
+
+export const createAppointment = async (data) => {
+  try {
+  
+     await  addDoc(collection(db, "citas"), {data})
+
+  } catch (error) {
+    console.error('Error al crear la cita en Firebase', error);
+    throw error;
+  }
+};
+
+export const combineData = (medico, cita, uid) => {
+  return {
+    medico,
+    cita,
+    uid,
+  };
+};
+
+export const getCitas = async (id) => {
+  try {
+    const docRef = query(collection(db, "citas"), where("data.uid", "==", id));
+    const documents = await getDocs(docRef);
+
+    const citas = [];
+
+    documents.forEach((doc) => {
+      citas.push({
+        id: doc.id,
+        data: doc.data(),
+      });
+    });
+
+    return citas
+
+  } catch (error) {
+    console.error('Error al obtener los documento:', error);
+    throw error;
+  }
+};
+
