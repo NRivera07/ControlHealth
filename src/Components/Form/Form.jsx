@@ -5,7 +5,7 @@ import { GetDoctors } from '../../redux/action/DoctorAction';
 import { useDispatch, useSelector} from "react-redux";
 import { combineData } from '../../redux/action/action';
 import { createAppointment } from '../../redux/action/action';
-import { getCitas } from '../../redux/action/action';
+
 
 const Form = () => {
 
@@ -25,7 +25,7 @@ const Form = () => {
     Tip_Diabe: '',
     descriction: '',
   });
-const [citas, setCitas] = useState([])
+
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -45,6 +45,7 @@ const [citas, setCitas] = useState([])
   };
 
   const closeMedicoDetailsModal = () => {
+    console.log(selectedMedico)
     setIsMedicoDetailsOpen(false);
   };
 
@@ -58,22 +59,19 @@ const [citas, setCitas] = useState([])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    // Verifica si todos los campos en infoForm están llenos
+  
+  
     const areAllFieldsFilled = Object.values(infoForm).every((value) => value.trim() !== '');
-
+  
     if (!areAllFieldsFilled) {
       alert('Por favor, complete todos los campos antes de enviar el formulario.');
       return;
     }
-
-    const data = combineData(selectedMedico, infoForm, currentUser.uid)
-
-    createAppointment(data)
-
-    setCitas( await getCitas(currentUser.uid))
-
-    console.log(citas)
+  
+    const data = combineData(selectedMedico, infoForm, currentUser.uid);
+  
+    await createAppointment(data);
+  
   };
   
   const handleChange = (e) => {
@@ -162,7 +160,7 @@ const [citas, setCitas] = useState([])
               </textarea>
             </div>
             <div>
-              <button className="btn btn-primary" onClick={openModal}>
+              <button type="button" className="btn btn-primary" onClick={openModal}>
                 Seleccionar medico
               </button>
             </div>
@@ -183,7 +181,7 @@ const [citas, setCitas] = useState([])
                 {doctors?.map((doctor, index) => (
                   <div className="medico-card" key={index}>
                     <h3>{doctor.displayName}</h3>
-                    <button onClick={() => handleMedicoSelect(doctor.displayName)}>
+                    <button  onClick={() => handleMedicoSelect(doctor.displayName)}>
                       Seleccionar
                     </button>
                   </div>

@@ -1,26 +1,64 @@
-import React from 'react';
-import useAuth from '../../custom-Hooks/useAuth';
-import { Container, Row, Col, Card } from 'react-bootstrap'; // Importa los componentes de React Bootstrap
+import React, { useState } from 'react';
+import './Profile.css'; // Crea un archivo CSS para estilos personalizados
 
 const Profile = () => {
-  const user = useAuth();
+  
+  const [userData, setUserData] = useState({  
+    name: 'Nombre de Usuario',
+    email: 'correo@ejemplo.com',
+   
+  });
+
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    
+  };
+
+  
+  const handleUpdateProfile = () => {
+    
+  };
 
   return (
-    <Container className='mt-5'>
-      {user && (
-        <Row>
-          <Col md={{ span: 6, offset: 3 }}>
-            <Card>
-              <Card.Body>
-                <Card.Title>{user.displayName}</Card.Title>
-                <Card.Text>Email: {user.email}</Card.Text>
-                {/* Otros datos del perfil del usuario */}
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
-      )}
-    </Container>
+    <div className="profile-container">
+      <h1>Perfil de Usuario</h1>
+      <div className="profile-avatar">
+       
+        <img src="ruta_a_la_foto" alt="Foto de perfil" />
+        {/* Input para cargar una nueva foto */}
+        <input type="file" accept="image/*" onChange={handleFileChange} />
+      </div>
+      <div className="profile-form">
+        <label htmlFor="name">Nombre:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={userData.name}
+          onChange={handleInputChange}
+        />
+        <label htmlFor="email">Correo Electrónico:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={userData.email}
+          onChange={handleInputChange}
+        />
+        {/* Otros campos del formulario para actualizar */}
+      </div>
+      <button onClick={handleUpdateProfile}>Actualizar Perfil</button>
+    </div>
   );
 };
 

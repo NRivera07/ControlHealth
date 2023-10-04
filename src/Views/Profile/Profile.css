@@ -1,0 +1,69 @@
+/* Profile.css */
+
+.profile-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .profile-avatar {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .profile-avatar img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #007bff; /* Color del borde de la foto de perfil */
+  }
+  
+  .profile-avatar input[type="file"] {
+    display: none;
+  }
+  
+  .profile-avatar label {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #007bff; /* Color de fondo del botón para cargar foto */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .profile-form input[type="text"],
+  .profile-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #007bff; /* Color de fondo del botón de actualización */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el mouse */
+  }
+  

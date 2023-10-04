@@ -1,6 +1,7 @@
 .sidebar {
     flex: 1;
     border-right: 1px solid black;
+    overflow: scroll;
   }
   
   .quote-card {

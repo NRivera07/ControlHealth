@@ -135,7 +135,7 @@ export const logout = () => {
 export const createAppointment = async (data) => {
   try {
   
-     await  addDoc(collection(db, "citas"), {data})
+     await addDoc(collection(db, "citas"), {data})
 
   } catch (error) {
     console.error('Error al crear la cita en Firebase', error);
