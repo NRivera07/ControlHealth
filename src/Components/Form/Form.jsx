@@ -1,8 +1,8 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Form.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { GetDoctors } from '../../redux/action/DoctorAction';
-import { useDispatch, useSelector} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { combineData } from '../../redux/action/action';
 import { createAppointment } from '../../redux/action/action';
 
@@ -10,8 +10,8 @@ import { createAppointment } from '../../redux/action/action';
 const Form = () => {
 
   const dispatch = useDispatch()
-  const { doctors} = useSelector((state) => state.doctors);
-  const { currentUser} = useSelector((state) => state.user);
+  const { doctors } = useSelector((state) => state.doctors);
+  const { currentUser } = useSelector((state) => state.user);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMedicoDetailsOpen, setIsMedicoDetailsOpen] = useState(false);
@@ -59,21 +59,31 @@ const Form = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
-  
+
+
     const areAllFieldsFilled = Object.values(infoForm).every((value) => value.trim() !== '');
-  
+
     if (!areAllFieldsFilled) {
       alert('Por favor, complete todos los campos antes de enviar el formulario.');
       return;
     }
-  
+
     const data = combineData(selectedMedico, infoForm, currentUser.uid);
-  
+
     await createAppointment(data);
-  
+
+    setinfoForm({
+      name: '',
+      date: '',
+      cedula: '',
+      numTelef: '',
+      Tip_Diabe: '',
+      descriction: '',
+    })
+
+    setSelectedMedico(null)
   };
-  
+
   const handleChange = (e) => {
     let { name, value } = e.target;
     setinfoForm({ ...infoForm, [name]: value });
@@ -93,7 +103,7 @@ const Form = () => {
                 placeholder="Nombre"
                 id="name"
                 name="name"
-                value={infoForm.name} 
+                value={infoForm.name}
                 onChange={handleChange}
                 required
               />
@@ -104,7 +114,7 @@ const Form = () => {
                 type="date"
                 id="date"
                 name="date"
-                value={infoForm.date} 
+                value={infoForm.date}
                 onChange={handleChange}
                 required
               />
@@ -117,7 +127,7 @@ const Form = () => {
                 placeholder="Cédula"
                 id="cedula"
                 name="cedula"
-                value={infoForm.cedula} 
+                value={infoForm.cedula}
                 onChange={handleChange}
                 required
               />
@@ -130,7 +140,7 @@ const Form = () => {
                 type="text"
                 className="form-control"
                 placeholder="Número de Teléfono"
-                value={infoForm.numTelef} 
+                value={infoForm.numTelef}
                 onChange={handleChange}
                 id="numTelef"
                 name="numTelef"
@@ -149,13 +159,13 @@ const Form = () => {
             <div className="form-group">
               <label htmlFor="descriction">Motivo de la Cita</label>
               <br />
-              <textarea 
-              name="descriction" 
-              id="descriction" 
-              rows="4" 
-              value={infoForm.descriction} 
-              onChange={handleChange}
-              placeholder="Ingrese el motivo aquí..."
+              <textarea
+                name="descriction"
+                id="descriction"
+                rows="4"
+                value={infoForm.descriction}
+                onChange={handleChange}
+                placeholder="Ingrese el motivo aquí..."
               >
               </textarea>
             </div>
@@ -181,7 +191,7 @@ const Form = () => {
                 {doctors?.map((doctor, index) => (
                   <div className="medico-card" key={index}>
                     <h3>{doctor.displayName}</h3>
-                    <button  onClick={() => handleMedicoSelect(doctor.displayName)}>
+                    <button onClick={() => handleMedicoSelect(doctor.displayName)}>
                       Seleccionar
                     </button>
                   </div>
