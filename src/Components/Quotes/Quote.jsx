@@ -8,18 +8,16 @@ const Quote = () => {
     const [citas, setCitas] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const citasData = await getCitas(currentUser.uid);
-                setCitas(citasData);
-            } catch (error) {
-                console.error('Error al obtener las citas', error);
-            }
+        const unsubscribe = getCitas(currentUser.uid, (citasData) => {
+            setCitas(citasData);
+        });
+
+        return () => {
+            // Limpia la suscripción cuando el componente se desmonta
+            unsubscribe();
         };
-
-        fetchData();
     }, [currentUser.uid]);
-
+    
     if (citas.length === 0) {
         return (
             <div className="sidebar">

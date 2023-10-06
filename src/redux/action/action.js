@@ -16,7 +16,7 @@ import {
   signOut
 } from 'firebase/auth'
 import { auth } from "../../firebase_config";
-import { doc, setDoc, addDoc,collection, query, where, getDocs  } from "firebase/firestore";
+import { doc, setDoc, addDoc,collection, query, where, onSnapshot  } from "firebase/firestore";
 import { db } from "../../firebase_config";
 
 const registerUser = () => ({
@@ -151,25 +151,24 @@ export const combineData = (medico, cita, uid) => {
   };
 };
 
-export const getCitas = async (id) => {
+export const getCitas = (id, callback) => {
   try {
     const docRef = query(collection(db, "citas"), where("data.uid", "==", id));
-    const documents = await getDocs(docRef);
 
-    const citas = [];
+    return onSnapshot(docRef, (querySnapshot) => {
+      const citas = [];
 
-    documents.forEach((doc) => {
-      citas.push({
-        id: doc.id,
-        data: doc.data(),
+      querySnapshot.forEach((doc) => {
+        citas.push({
+          id: doc.id,
+          data: doc.data(),
+        });
       });
+
+      callback(citas);
     });
-
-    return citas
-
   } catch (error) {
-    console.error('Error al obtener los documento:', error);
+    console.error('Error al obtener los documentos:', error);
     throw error;
   }
 };
-
