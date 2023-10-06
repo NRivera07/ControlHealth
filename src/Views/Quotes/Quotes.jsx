@@ -24,6 +24,7 @@ function Citas() {
           onClick={() => setShowModal(false)}
           className="close-icon"
         />
+        
       </Modal.Header>
       <Modal.Body>
         <Form>
