@@ -7,7 +7,6 @@
   }
 .custom-file-input-container p {
     margin: 0;
-    color: #fff
   }
   
   /* Estilo para el texto personalizado */
@@ -29,6 +28,10 @@
   
   .selected-file {
     background-color: var(--color-primary);
+
+  }
+
+  .selected-file p {
     color: #fff
   }
 
